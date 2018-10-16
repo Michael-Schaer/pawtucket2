@@ -75,7 +75,7 @@ define("__CA_APP_NAME__", "collectiveaccess");
 #		
 #
 $_CA_THEMES_BY_DEVICE = array(
-	'_default_' 	=> 'default'		// use the 'default' theme for everything else
+	'_default_' 	=> 'fotoCH'		// use the 'default' theme for everything else
 );
 
 
