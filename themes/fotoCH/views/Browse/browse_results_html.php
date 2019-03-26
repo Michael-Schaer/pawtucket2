@@ -241,7 +241,7 @@ if (!$vb_ajax) {	// !ajax
 				if ($vs_current_view === $vs_view) {
 					print '<a href="#" class="active"><span class="glyphicon '.$va_view_icons[$vs_view]['icon'].'"></span></a> ';
 				} else {
-					print caNavLink($this->request, '<span class="glyphicon '.$va_view_icons[$vs_view]['icon'].'"></span>', 'disabled', '*', '*', '*', array('view' => $vs_view, 'key' => $vs_browse_key)).' ';
+					print caNavLink($this->request, '<span class="glyphicon '.$va_view_icons[$vs_view]['icon'].'"></span>', '', '*', '*', '*', array('view' => $vs_view, 'key' => $vs_browse_key)).' ';
 				}
 			}
 		}

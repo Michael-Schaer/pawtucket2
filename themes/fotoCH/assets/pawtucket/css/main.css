@@ -437,6 +437,14 @@ h1 i {
 	margin-bottom:15px;
 }
 
+.padded-right-sm {
+    padding-right: 10px;
+}
+
+.bottom-spaced-lg {
+    margin-bottom: 50px;
+}
+
 /* ----------------------------------------- */
 /* navbar - browse menu */
 /* ----------------------------------------- */
