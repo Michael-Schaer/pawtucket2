@@ -30,6 +30,28 @@ $vn_share_enabled =     $this->getVar("shareEnabled");
             print "<div class='unit'>{$vs_bildgattung}</div><!-- end unit -->";
           }
           ?>
+          {{{<ifdef code="ca_entities.address">
+            <H6><?php print $t_item->getDisplayLabel("ca_entities.address") ?></H6>
+            <div class="row">
+              <ifdef code="ca_entities.address.address1"><div class='col-md-12 col-lg-12'>^ca_entities.address.address1</div></ifdef>
+              <ifdef code="ca_entities.address.address2"><div class='col-md-12 col-lg-12'>^ca_entities.address.address2</div></ifdef>
+
+              <ifdef code="ca_entities.address.postalcode|ca_entities.address.city">
+                <div class='col-md-12 col-lg-12'>
+                  <span>^ca_entities.address.postalcode </span>
+                  <span>^ca_entities.address.city</span>
+                </div>
+              </ifdef>
+
+              <ifdef code="ca_entities.address.stateprovince|ca_entities.address.country">
+                <div class='col-md-12 col-lg-12'>
+                  <span>^ca_entities.address.stateprovince</span>
+                  <span>^ca_entities.address.country</span>
+                </div>
+              </ifdef>
+            </div>
+          </ifdef>}}}
+
           <H6>GND</H6>
           <span>{{{<ifdef code="ca_entities.alternate_idnos">^ca_entities.alternate_idnos</ifdef>}}}</span>
 
