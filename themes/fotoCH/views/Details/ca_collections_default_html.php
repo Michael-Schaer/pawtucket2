@@ -58,6 +58,40 @@
 				<div class='col-md-6 col-lg-6'>
 					{{{<ifdef code="ca_collections.description"><H6>About</H6>^ca_collections.description<br/></ifdef>}}}
 					{{{<ifcount code="ca_objects" min="1" max="1"><div class='unit'><unit relativeTo="ca_objects" delimiter=" "><l>^ca_object_representations.media.large</l><div class='caption'>Related Object: <l>^ca_objects.preferred_labels.name</l></div></unit></div></ifcount>}}}
+
+					{{{<ifdef code="ca_collections.date"><H6>Date:</H6>^ca_collections.date<br/></ifdef>}}}
+
+					{{{<ifdef code="ca_collections.genre_list">
+					<H6><?php print $t_item->getDisplayLabel("ca_collections.genre_list") ?></H6>
+          <?php
+          if($vs_bildgattung = $t_item->get("ca_collections.genre_list" , array('convertCodesToDisplayText' => true))){
+            print "<div class='unit'>{$vs_bildgattung}</div><!-- end unit -->";
+          }
+          ?>
+					</ifdef>}}}
+
+					{{{<ifcount code="ca_list_items" min="1" max="1"><H6>Related Term</H6></ifcount>}}}
+					{{{<ifcount code="ca_list_items" min="2"><H6>Related Terms</H6></ifcount>}}}
+					{{{<unit relativeTo="ca_collections_x_vocabulary_terms" delimiter="<br/>"><unit relativeTo="ca_list_items"><l>^ca_list_items.preferred_labels.name_plural</l></unit> (^relationship_typename)</unit>}}}
+
+					{{{<ifcount code="ca_collections.external_link" min="1" max="1"><H6>External Link</H6></ifcount>}}}
+					{{{<ifcount code="ca_collections.external_link" min="2"><H6>External Links</H6></ifcount>}}}
+					{{{<ifcount code="ca_collections.external_link" min="1">
+					<unit relativeTo="ca_collections.external_link">
+						<a class="maybevalidlink" href="^ca_collections.external_link" target="_blank">^ca_collections.external_link</a>
+					</unit>
+					<script type="text/javascript">
+					jQuery(document).ready(function() {
+						$('.maybevalidlink').each(function(index, item) {
+							var linkText = $(item).text();
+							if(linkText.toLowerCase().indexOf("http") == -1 && linkText.toLowerCase().indexOf("www") == -1) {
+								$(item).attr("href", "http://" + linkText);
+							}
+						});
+					});
+					</script>
+					</ifcount>}}}
+
 <?php
 				# Comment and Share Tools
 				if ($vn_comments_enabled | $vn_share_enabled) {
